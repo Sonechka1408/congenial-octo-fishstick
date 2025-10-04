@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Webmaster - Website Development Service
 
 A modern, full-stack website development service platform with organized project structure.
@@ -259,3 +260,6 @@ This project is licensed under the MIT License.
 ## 📞 Support
 
 For support, please contact us through the contact form on the website or create an issue in the repository.
+=======
+# congenial-octo-fishstick
+>>>>>>> 7506c58d7f321979c8fa1f434d78e7f3d270ee03
