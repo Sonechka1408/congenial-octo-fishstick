@@ -26,3 +26,4 @@ COPY (
 ) TO STDOUT WITH CSV HEADER;
 
 SELECT 'Backup completed at ' || NOW() as backup_end;
+

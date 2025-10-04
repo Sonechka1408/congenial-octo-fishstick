@@ -27,3 +27,4 @@ CREATE INDEX IF NOT EXISTS idx_users_created_at ON users(created_at);
 CREATE INDEX IF NOT EXISTS idx_form_submissions_user_id ON form_submissions(user_id);
 CREATE INDEX IF NOT EXISTS idx_form_submissions_created_at ON form_submissions(created_at);
 CREATE INDEX IF NOT EXISTS idx_form_submissions_form_type ON form_submissions(form_type);
+
