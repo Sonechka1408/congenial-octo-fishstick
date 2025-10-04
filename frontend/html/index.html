@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webmaster - Website Development</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">Webmaster</a>
+            <nav>
+                <ul>
+                    <li><a href="cases.html">Business Cases</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li class="dropdown">
+                        <a href="#services">Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="marketing.html">Marketing</a></li>
+                            <li><a href="personal-design.html">Personal Design</a></li>
+                            <li><a href="strategy.html">Strategy</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="hotline">
+                <span>Hotline: +1 (555) 123-4567</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+        <div class="container welcome-content">
+            <h1>Website development!</h1>
+            <h3>"Роскошный максимум для вашего бизнеса"</h3>
+            <div class="brand-icon">
+                <img src="brand_icon.png" alt="Brand Icon">
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="clients-section">
+        <div class="container">
+            <h3>Our Clients:</h3>
+            <div class="client-logos">
+                <div class="client-logo">
+                    <img src="babyoil_logo.png" alt="babyoil">
+                </div>
+                <div class="client-logo">
+                    <img src="pdiddy_logo.png" alt="p.diddy">
+                </div>
+                <div class="client-logo">
+                    <img src="dubai_chocolate_logo.png" alt="dubai_chocolate">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section">
+        <div class="container">
+            <h3>Projects in Use</h3>
+            <div class="projects-carousel">
+                <div class="projects-container" id="projectsContainer">
+                    <div class="project-item">
+                        <div class="project-preview">Project Preview 1</div>
+                        <div class="project-info">
+                            <h4>E-commerce Website</h4>
+                            <p>Fully functional online store</p>
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <div class="project-preview">Project Preview 2</div>
+                        <div class="project-info">
+                            <h4>Corporate Portal</h4>
+                            <p>Internal communication platform</p>
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <div class="project-preview">Project Preview 3</div>
+                        <div class="project-info">
+                            <h4>Booking System</h4>
+                            <p>Appointment scheduling solution</p>
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <div class="project-preview">Project Preview 4</div>
+                        <div class="project-info">
+                            <h4>Portfolio Website</h4>
+                            <p>Creative showcase platform</p>
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <div class="project-preview">Project Preview 5</div>
+                        <div class="project-info">
+                            <h4>Blog Platform</h4>
+                            <p>Content management system</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container services-container">
+            <div class="service-block">
+                <div class="service-icon">✓</div>
+                <h3>We offer you</h3>
+                <p>Comprehensive website development solutions tailored to your business needs, from simple landing pages to complex web applications.</p>
+            </div>
+            <div class="service-block">
+                <div class="service-icon">📈</div>
+                <h3>Marketing strategy</h3>
+                <p>Data-driven marketing strategies to maximize your online presence, increase conversions, and grow your customer base.</p>
+            </div>
+            <div class="service-block">
+                <div class="service-icon">⭐</div>
+                <h3>Our experience</h3>
+                <p>With over 10 years in the industry, we've delivered successful projects for businesses of all sizes across various sectors.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="calculator-section">
+        <div class="container">
+            <h2>Calculate the price for YOUR website:</h2>
+            <form class="calculator-form" id="priceCalculator">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <button type="submit" class="submit-btn">Leave your request</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Webmaster. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Projects Carousel
+        const projectsContainer = document.getElementById('projectsContainer');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        projectsContainer.addEventListener('mousedown', (e) => {
+            isDown = true;
+            projectsContainer.classList.add('active');
+            startX = e.pageX - projectsContainer.offsetLeft;
+            scrollLeft = projectsContainer.scrollLeft;
+        });
+
+        projectsContainer.addEventListener('mouseleave', () => {
+            isDown = false;
+            projectsContainer.classList.remove('active');
+        });
+
+        projectsContainer.addEventListener('mouseup', () => {
+            isDown = false;
+            projectsContainer.classList.remove('active');
+        });
+
+        projectsContainer.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - projectsContainer.offsetLeft;
+            const walk = (x - startX) * 2;
+            projectsContainer.scrollLeft = scrollLeft - walk;
+        });
+
+        // Form Submission
+        document.getElementById('priceCalculator').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            
+            // Show loading state
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+            
+            // Send data to backend
+            fetch('/api/submit-form', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    phone: phone,
+                    form_type: 'price_calculator'
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert(`Thank you, ${name}! Your request has been submitted. We will contact you at ${phone} or ${email} shortly.`);
+                    this.reset();
+                } else {
+                    alert('Error submitting form. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error submitting form. Please try again.');
+            })
+            .finally(() => {
+                // Reset button state
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
+        });
+    </script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

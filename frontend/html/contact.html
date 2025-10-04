@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - Webmaster</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">Webmaster</a>
+            <nav>
+                <ul>
+                    <li><a href="cases.html">Бизнес Кейсы</a></li>
+                    <li><a href="about-us.html">О Нас</a></li>
+                    <li class="dropdown">
+                        <a href="#services">Услуги</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="marketing.html">Маркетинг</a></li>
+                            <li><a href="personal-design.html">Персональный Дизайн</a></li>
+                            <li><a href="strategy.html">Стратегия</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html" class="active">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="hotline">
+                <span>Горячая линия: +7 (999) 123-45-67</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container page-content">
+        <h1>Свяжитесь с Нами</h1>
+        <div class="content-section contact-section">
+            <div class="contact-info">
+                <h2>Наши Контакты</h2>
+                <div class="contact-item">
+                    <h3>Адрес</h3>
+                    <p>г. Москва, ул. Тверская, д. 10<br>Бизнес-центр "Премиум"</p>
+                </div>
+                
+                <div class="contact-item">
+                    <h3>Телефоны</h3>
+                    <p>Горячая линия: +7 (999) 123-45-67<br>Отдел продаж: +7 (999) 123-45-68<br>Техническая поддержка: +7 (999) 123-45-69</p>
+                </div>
+                
+                <div class="contact-item">
+                    <h3>Email</h3>
+                    <p>info@webdevpro.ru<br>sales@webdevpro.ru<br>support@webdevpro.ru</p>
+                </div>
+                
+                <div class="contact-item">
+                    <h3>Режим Работы</h3>
+                    <p>Пн-Пт: 9:00 - 18:00<br>Сб: 10:00 - 16:00<br>Вс: выходной</p>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h2>Отправить Сообщение</h2>
+                <form class="calculator-form">
+                    <div class="form-group">
+                        <label for="contact-name">Имя:</label>
+                        <input type="text" id="contact-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">Email:</label>
+                        <input type="email" id="contact-email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-phone">Телефон:</label>
+                        <input type="tel" id="contact-phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-service">Интересующая Услуга:</label>
+                        <select id="contact-service" name="service">
+                            <option value="">Выберите услугу</option>
+                            <option value="marketing">Маркетинг</option>
+                            <option value="design">Персональный Дизайн</option>
+                            <option value="strategy">Стратегия</option>
+                            <option value="development">Веб-Разработка</option>
+                            <option value="other">Другое</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">Сообщение:</label>
+                        <textarea id="contact-message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Отправить Сообщение</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="map-section">
+            <h2>Как Нас Найти</h2>
+            <div class="map-placeholder">
+                <p>🚀 Здесь будет карта с нашим местоположением</p>
+                <p>г. Москва, ул. Тверская, д. 10</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Webmaster. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>
