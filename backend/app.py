@@ -8,7 +8,7 @@ import requests
 import json
 
 app = Flask(__name__, 
-            template_folder='../frontend/html',
+            template_folder='../frontend',
             static_folder='../frontend')
 CORS(app)
 
