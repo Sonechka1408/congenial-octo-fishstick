@@ -27,3 +27,4 @@ COPY (
 
 SELECT 'Backup completed at ' || NOW() as backup_end;
 
+

@@ -1,6 +1,6 @@
 FROM node:18-alpine
 
-WORKDIR /congenial-octo-fishstick
+WORKDIR /congenial-octo-fishstick/frontend
 
 # Копируем зависимости для кэширования
 COPY frontend/package.json ./
