@@ -1,0 +1,17 @@
+{
+    "name": "webdev-pro-frontend",
+    "version": "1.0.0",
+    "description": "Professional website development company",
+    "type": "module",
+    "scripts": {
+      "start": "node server.js",
+      "dev": "node server.js",
+      "build": "echo 'Static site - no build process'"
+    },
+    "dependencies": {
+      "express": "^4.18.2"
+    },
+    "engines": {
+      "node": ">=18.0.0"
+    }
+  }
