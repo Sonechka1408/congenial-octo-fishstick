@@ -67,44 +67,120 @@
     <section class="projects-section">
         <div class="container">
             <h3>Projects in Use</h3>
-            <div class="projects-carousel">
-                <div class="projects-container" id="projectsContainer">
-                    <div class="project-item">
-                        <div class="project-preview">Project Preview 1</div>
-                        <div class="project-info">
-                            <h4>E-commerce Website</h4>
-                            <p>Fully functional online store</p>
+            <div class="projects-carousel-wrapper">
+                <!-- Navigation Indicators -->
+                <div class="carousel-indicators" id="carouselIndicators">
+                    <div class="indicator active" data-index="0"></div>
+                    <div class="indicator" data-index="1"></div>
+                    <div class="indicator" data-index="2"></div>
+                    <div class="indicator" data-index="3"></div>
+                    <div class="indicator" data-index="4"></div>
+                </div>
+                
+                <!-- Scrollable Projects Container -->
+                <div class="projects-carousel" id="projectsCarousel">
+                    <div class="projects-container" id="projectsContainer">
+                        <div class="project-item">
+                            <div class="project-preview">
+                                <div class="project-image">🛒</div>
+                                <div class="project-overlay">
+                                    <h4>E-commerce Website</h4>
+                                    <p>Fully functional online store with payment integration</p>
+                                    <button class="view-project-btn">View Project</button>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h4>E-commerce Website</h4>
+                                <p>Fully functional online store</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">React</span>
+                                    <span class="tech-tag">Node.js</span>
+                                    <span class="tech-tag">MongoDB</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="project-item">
-                        <div class="project-preview">Project Preview 2</div>
-                        <div class="project-info">
-                            <h4>Corporate Portal</h4>
-                            <p>Internal communication platform</p>
+                        <div class="project-item">
+                            <div class="project-preview">
+                                <div class="project-image">🏢</div>
+                                <div class="project-overlay">
+                                    <h4>Corporate Portal</h4>
+                                    <p>Internal communication platform for teams</p>
+                                    <button class="view-project-btn">View Project</button>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h4>Corporate Portal</h4>
+                                <p>Internal communication platform</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Vue.js</span>
+                                    <span class="tech-tag">Express</span>
+                                    <span class="tech-tag">PostgreSQL</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="project-item">
-                        <div class="project-preview">Project Preview 3</div>
-                        <div class="project-info">
-                            <h4>Booking System</h4>
-                            <p>Appointment scheduling solution</p>
+                        <div class="project-item">
+                            <div class="project-preview">
+                                <div class="project-image">📅</div>
+                                <div class="project-overlay">
+                                    <h4>Booking System</h4>
+                                    <p>Appointment scheduling solution</p>
+                                    <button class="view-project-btn">View Project</button>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h4>Booking System</h4>
+                                <p>Appointment scheduling solution</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Angular</span>
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">MySQL</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="project-item">
-                        <div class="project-preview">Project Preview 4</div>
-                        <div class="project-info">
-                            <h4>Portfolio Website</h4>
-                            <p>Creative showcase platform</p>
+                        <div class="project-item">
+                            <div class="project-preview">
+                                <div class="project-image">🎨</div>
+                                <div class="project-overlay">
+                                    <h4>Portfolio Website</h4>
+                                    <p>Creative showcase platform</p>
+                                    <button class="view-project-btn">View Project</button>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h4>Portfolio Website</h4>
+                                <p>Creative showcase platform</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Next.js</span>
+                                    <span class="tech-tag">Tailwind</span>
+                                    <span class="tech-tag">Sanity</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="project-item">
-                        <div class="project-preview">Project Preview 5</div>
-                        <div class="project-info">
-                            <h4>Blog Platform</h4>
-                            <p>Content management system</p>
+                        <div class="project-item">
+                            <div class="project-preview">
+                                <div class="project-image">📝</div>
+                                <div class="project-overlay">
+                                    <h4>Blog Platform</h4>
+                                    <p>Content management system</p>
+                                    <button class="view-project-btn">View Project</button>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h4>Blog Platform</h4>
+                                <p>Content management system</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Gatsby</span>
+                                    <span class="tech-tag">GraphQL</span>
+                                    <span class="tech-tag">WordPress</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                
+                <!-- Navigation Arrows -->
+                <button class="carousel-nav prev" id="prevBtn">‹</button>
+                <button class="carousel-nav next" id="nextBtn">›</button>
             </div>
         </div>
     </section>
@@ -160,35 +236,196 @@
     </footer>
 
     <script>
-        // Projects Carousel
-        const projectsContainer = document.getElementById('projectsContainer');
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-
-        projectsContainer.addEventListener('mousedown', (e) => {
-            isDown = true;
-            projectsContainer.classList.add('active');
-            startX = e.pageX - projectsContainer.offsetLeft;
-            scrollLeft = projectsContainer.scrollLeft;
-        });
-
-        projectsContainer.addEventListener('mouseleave', () => {
-            isDown = false;
-            projectsContainer.classList.remove('active');
-        });
-
-        projectsContainer.addEventListener('mouseup', () => {
-            isDown = false;
-            projectsContainer.classList.remove('active');
-        });
-
-        projectsContainer.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - projectsContainer.offsetLeft;
-            const walk = (x - startX) * 2;
-            projectsContainer.scrollLeft = scrollLeft - walk;
+        // Enhanced Projects Carousel with Cursor Navigation
+        class ProjectsCarousel {
+            constructor() {
+                this.container = document.getElementById('projectsContainer');
+                this.carousel = document.getElementById('projectsCarousel');
+                this.indicators = document.querySelectorAll('.indicator');
+                this.prevBtn = document.getElementById('prevBtn');
+                this.nextBtn = document.getElementById('nextBtn');
+                
+                this.currentIndex = 0;
+                this.isScrolling = false;
+                this.scrollTimeout = null;
+                this.isDown = false;
+                this.startX = 0;
+                this.scrollLeft = 0;
+                
+                this.init();
+            }
+            
+            init() {
+                this.setupEventListeners();
+                this.updateIndicators();
+                this.updateNavigationButtons();
+            }
+            
+            setupEventListeners() {
+                // Mouse events for drag scrolling
+                this.container.addEventListener('mousedown', (e) => {
+                    this.isDown = true;
+                    this.container.classList.add('active');
+                    this.startX = e.pageX - this.container.offsetLeft;
+                    this.scrollLeft = this.container.scrollLeft;
+                });
+                
+                this.container.addEventListener('mouseleave', () => {
+                    this.isDown = false;
+                    this.container.classList.remove('active');
+                });
+                
+                this.container.addEventListener('mouseup', () => {
+                    this.isDown = false;
+                    this.container.classList.remove('active');
+                });
+                
+                this.container.addEventListener('mousemove', (e) => {
+                    if (!this.isDown) return;
+                    e.preventDefault();
+                    const x = e.pageX - this.container.offsetLeft;
+                    const walk = (x - this.startX) * 2;
+                    this.container.scrollLeft = this.scrollLeft - walk;
+                });
+                
+                // Wheel events for scroll navigation
+                this.carousel.addEventListener('wheel', (e) => {
+                    e.preventDefault();
+                    if (this.isScrolling) return;
+                    
+                    const delta = e.deltaY;
+                    if (delta > 0) {
+                        // Scroll down - move carousel right
+                        this.nextSlide();
+                    } else {
+                        // Scroll up - move carousel left
+                        this.prevSlide();
+                    }
+                });
+                
+                // Touch events for mobile
+                let startTouchX = 0;
+                this.container.addEventListener('touchstart', (e) => {
+                    startTouchX = e.touches[0].clientX;
+                });
+                
+                this.container.addEventListener('touchend', (e) => {
+                    const endTouchX = e.changedTouches[0].clientX;
+                    const diff = startTouchX - endTouchX;
+                    
+                    if (Math.abs(diff) > 50) {
+                        if (diff > 0) {
+                            this.nextSlide();
+                        } else {
+                            this.prevSlide();
+                        }
+                    }
+                });
+                
+                // Indicator clicks
+                this.indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => {
+                        this.goToSlide(index);
+                    });
+                });
+                
+                // Navigation buttons
+                this.prevBtn.addEventListener('click', () => this.prevSlide());
+                this.nextBtn.addEventListener('click', () => this.nextSlide());
+                
+                // Keyboard navigation
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft') {
+                        this.prevSlide();
+                    } else if (e.key === 'ArrowRight') {
+                        this.nextSlide();
+                    }
+                });
+                
+                // Auto-scroll detection
+                this.container.addEventListener('scroll', () => {
+                    this.updateCurrentIndex();
+                });
+            }
+            
+            nextSlide() {
+                if (this.isScrolling) return;
+                this.isScrolling = true;
+                
+                const itemWidth = this.container.children[0].offsetWidth;
+                const scrollAmount = itemWidth + 20; // 20px gap
+                
+                this.container.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+                
+                setTimeout(() => {
+                    this.isScrolling = false;
+                }, 500);
+            }
+            
+            prevSlide() {
+                if (this.isScrolling) return;
+                this.isScrolling = true;
+                
+                const itemWidth = this.container.children[0].offsetWidth;
+                const scrollAmount = itemWidth + 20; // 20px gap
+                
+                this.container.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+                
+                setTimeout(() => {
+                    this.isScrolling = false;
+                }, 500);
+            }
+            
+            goToSlide(index) {
+                if (this.isScrolling) return;
+                this.isScrolling = true;
+                
+                const itemWidth = this.container.children[0].offsetWidth;
+                const scrollAmount = index * (itemWidth + 20);
+                
+                this.container.scrollTo({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+                
+                setTimeout(() => {
+                    this.isScrolling = false;
+                }, 500);
+            }
+            
+            updateCurrentIndex() {
+                const itemWidth = this.container.children[0].offsetWidth;
+                const scrollLeft = this.container.scrollLeft;
+                const newIndex = Math.round(scrollLeft / (itemWidth + 20));
+                
+                if (newIndex !== this.currentIndex) {
+                    this.currentIndex = Math.max(0, Math.min(newIndex, this.indicators.length - 1));
+                    this.updateIndicators();
+                    this.updateNavigationButtons();
+                }
+            }
+            
+            updateIndicators() {
+                this.indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === this.currentIndex);
+                });
+            }
+            
+            updateNavigationButtons() {
+                this.prevBtn.style.opacity = this.currentIndex === 0 ? '0.5' : '1';
+                this.nextBtn.style.opacity = this.currentIndex === this.indicators.length - 1 ? '0.5' : '1';
+            }
+        }
+        
+        // Initialize carousel when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new ProjectsCarousel();
         });
 
         // Form Submission
