@@ -1,6 +1,6 @@
 FROM node:18-alpine
 
-WORKDIR /frontend
+WORKDIR /frontend/html
 
 # Копируем зависимости для кэширования
 COPY frontend/package.json ./
