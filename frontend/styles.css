@@ -29,8 +29,8 @@ body {
 
 /* Header Styles */
 header {
-    background-color: var(--primary);
-    color: white;
+    background: #b2cff1;
+    color: var(--dark);
     padding: 1rem 0;
     position: sticky;
     top: 0;
@@ -44,12 +44,7 @@ header {
     align-items: center;
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: white;
-    text-decoration: none;
-}
+.logo { font-size: 1.5rem; font-weight: 800; color: var(--dark); text-decoration: none; }
 
 nav ul {
     display: flex;
@@ -60,12 +55,7 @@ nav ul li {
     margin-left: 1.5rem;
 }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
-}
+nav ul li a { color: var(--dark); text-decoration: none; font-weight: 600; transition: color 0.3s; }
 
 nav ul li a:hover {
     color: var(--secondary);
@@ -121,62 +111,53 @@ nav ul li a:hover {
 .hotline {
     display: flex;
     align-items: center;
-    background-color: var(--accent);
     padding: 0.5rem 1rem;
     border-radius: 4px;
     font-weight: bold;
 }
 
-/* Welcome Section */
+/* Welcome Section - Swiss minimal layout */
 .welcome-section {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-    color: white;
+    background: #e9f3ff;
+    color: var(--dark);
     padding: 4rem 0;
-    text-align: center;
 }
 
 .welcome-content {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 2fr 3fr; /* 2/5 for text, 3/5 for image */
     align-items: center;
-    max-width: 800px;
-    margin: 0 auto;
+    gap: 2rem;
 }
 
-.welcome-content h1 {
+.welcome-text h1 {
     font-size: 3rem;
+    line-height: 1.1;
     margin-bottom: 1rem;
+    font-weight: 800; /* Swiss style: bold, strong typography */
 }
 
-.welcome-content h3 {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
+.welcome-text h3 {
+    font-size: 1.25rem;
     font-weight: 400;
-    font-style: italic;
+    color: var(--text);
 }
 
-.brand-icon {
-    width: 120px;
-    height: 120px;
-    background-color: white;
-    border-radius: 50%;
+.welcome-visual {
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin-top: 1rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-.brand-icon img {
-    max-width: 80%;
-    max-height: 80%;
+.welcome-ambassador {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    background: radial-gradient(180deg, #ffffff 0%, #e9f3ff 100%);
 }
 
 /* Clients Section */
-.clients-section {
-    padding: 3rem 0;
-    background-color: var(--light);
-}
+.clients-section { padding: 3rem 0; background: linear-gradient( #e9f3ff,#ffffff) }
 
 .clients-section h3 {
     text-align: center;
@@ -233,7 +214,7 @@ nav ul li a:hover {
     overflow: hidden;
     border-radius: 12px;
     box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    background: radial-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 }
 
 .projects-container {
@@ -272,7 +253,7 @@ nav ul li a:hover {
 .project-preview {
     position: relative;
     height: 200px;
-    background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+    background: radial-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -463,10 +444,7 @@ nav ul li a:hover {
 }
 
 /* Services Section */
-.services-section {
-    padding: 4rem 0;
-    background-color: var(--light);
-}
+.services-section { padding: 4rem 0; background:linear-gradient( #ffffff, #e9f3ff); }
 
 .services-container {
     display: flex;
@@ -504,10 +482,7 @@ nav ul li a:hover {
 }
 
 /* Calculator Section */
-.calculator-section {
-    padding: 4rem 0;
-    background-color: white;
-}
+.calculator-section { padding: 4rem 0; background: #e9f3ff; }
 
 .calculator-section h2 {
     text-align: center;
@@ -544,7 +519,7 @@ nav ul li a:hover {
 }
 
 .submit-btn {
-    background-color: var(--accent);
+    background-color: #fa7051;
     color: white;
     border: none;
     padding: 0.75rem 2rem;
@@ -558,16 +533,11 @@ nav ul li a:hover {
 }
 
 .submit-btn:hover {
-    background-color: #c0392b;
+    background-color: #ff9a75;
 }
 
 /* Footer */
-footer {
-    background-color: var(--dark);
-    color: white;
-    padding: 2rem 0;
-    text-align: center;
-}
+footer { background: #e9f3ff; color: var(--dark); padding: 2rem 0; text-align: center; }
 
 /* Responsive Design */
 @media (max-width: 768px) {
