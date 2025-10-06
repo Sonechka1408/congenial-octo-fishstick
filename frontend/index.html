@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Webmaster - Website Development</title>
+    <!-- Optional: set API base if frontend is served from a different origin -->
+    <!-- <meta name="api-base" content="http://localhost:5000"> -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -16,7 +18,7 @@
             <nav>
                 <ul>
                     <li><a href="cases.html">Бизнес кейсы</a></li>
-                    <li><a href="about-us.html">О нас</a></li>
+                    <li><a href="about-us.html">О Нас</a></li>
                     <li class="dropdown">
                         <a href="#services">Услуги</a>
                         <ul class="dropdown-menu">
@@ -29,7 +31,7 @@
                 </ul>
             </nav>
             <div class="hotline">
-                <span>Горячая линия: +1 (555) 123-4567</span>
+                <span>Горячая линия: +7 (999) 123-45-67</span>
             </div>
         </div>
     </header>
@@ -38,8 +40,11 @@
     <section class="welcome-section">
         <div class="container welcome-content">
             <div class="welcome-text">
-                <h1>Разработка сайтов!</h1>
+                <h1>Разработка сайтов</h1>
                 <h3>"Роскошный максимум для вашего бизнеса"</h3>
+                <div class="welcome-cta">
+                    <button class="discuss-project-btn">Обсудить проект</button>
+                </div>
             </div>
             <div class="welcome-visual">
                 <img src="images/dolphin.png" alt="Наш амбассадор">
@@ -47,19 +52,48 @@
         </div>
     </section>
 
+    <!-- Discuss Project Modal -->
+    <div class="modal" id="discussModal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-backdrop" data-close-modal></div>
+        <div class="modal-dialog" role="document">
+            <button class="modal-close" aria-label="Закрыть" data-close-modal>×</button>
+            <h3 class="modal-title">Обсудить проект</h3>
+            <p class="modal-subtitle">Оставьте контакты, и мы свяжемся с вами</p>
+            <form class="modal-form" id="discussForm">
+                <div class="form-group">
+                    <label for="dName">Имя</label>
+                    <input type="text" id="dName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="dPhone">Телефон</label>
+                    <input type="tel" id="dPhone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="dEmail">Email</label>
+                    <input type="email" id="dEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="dMessage">Коротко о задаче (необязательно)</label>
+                    <textarea id="dMessage" name="message" rows="3" placeholder="Опишите проект..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Отправить</button>
+            </form>
+        </div>
+    </div>
+
     <!-- Clients Section -->
     <section class="clients-section">
         <div class="container">
             <h3>Наши клиенты:</h3>
             <div class="client-logos">
                 <div class="client-logo">
-                    <img src="babyoil_logo.png" alt="babyoil">
+                    <img src="images/logo3.png" alt="babyoil">
                 </div>
                 <div class="client-logo">
-                    <img src="pdiddy_logo.png" alt="p.diddy">
+                    <img src="images/logo1.png" alt="p.diddy">
                 </div>
                 <div class="client-logo">
-                    <img src="dubai_chocolate_logo.png" alt="dubai_chocolate">
+                    <img src="images/logo2.png" alt="dubai_chocolate">
                 </div>
             </div>
         </div>
@@ -428,6 +462,75 @@
         // Initialize carousel when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
             new ProjectsCarousel();
+
+            // API base config
+            const apiMeta = document.querySelector('meta[name="api-base"]');
+            const API_BASE = apiMeta && apiMeta.content ? apiMeta.content.replace(/\/$/, '') : '';
+
+            // Modal logic
+            const modal = document.getElementById('discussModal');
+            const discussBtn = document.querySelector('.discuss-project-btn');
+            const closeEls = modal.querySelectorAll('[data-close-modal]');
+            const form = document.getElementById('discussForm');
+
+            function openModal() {
+                modal.classList.add('open');
+                modal.setAttribute('aria-hidden', 'false');
+                setTimeout(() => document.getElementById('dName').focus(), 50);
+            }
+
+            function closeModal() {
+                modal.classList.remove('open');
+                modal.setAttribute('aria-hidden', 'true');
+            }
+
+            if (discussBtn) {
+                discussBtn.addEventListener('click', openModal);
+            }
+
+            closeEls.forEach(el => el.addEventListener('click', closeModal));
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+            });
+
+            // Submit discuss form
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const submitBtn = form.querySelector('.submit-btn');
+                const original = submitBtn.textContent;
+                submitBtn.textContent = 'Submitting...';
+                submitBtn.disabled = true;
+
+                const payload = {
+                    name: form.name.value.trim(),
+                    email: form.email.value.trim(),
+                    phone: form.phone.value.trim(),
+                    message: form.message.value.trim(),
+                    form_type: 'discuss_modal'
+                };
+
+                try {
+                    const res = await fetch(`${API_BASE}/api/submit-form`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    const data = await res.json();
+                    if (data.success) {
+                        alert(`Спасибо, ${payload.name}! Мы свяжемся с вами по ${payload.phone} или ${payload.email}.`);
+                        form.reset();
+                        closeModal();
+                    } else {
+                        alert('Ошибка отправки. Попробуйте ещё раз.');
+                    }
+                } catch (err) {
+                    console.error(err);
+                    alert('Сеть недоступна. Попробуйте ещё раз.');
+                } finally {
+                    submitBtn.textContent = original;
+                    submitBtn.disabled = false;
+                }
+            });
         });
 
         // Form Submission
@@ -445,7 +548,9 @@
             submitBtn.disabled = true;
             
             // Send data to backend
-            fetch('/api/submit-form', {
+            const apiMeta2 = document.querySelector('meta[name="api-base"]');
+            const API_BASE2 = apiMeta2 && apiMeta2.content ? apiMeta2.content.replace(/\/$/, '') : '';
+            fetch(`${API_BASE2}/api/submit-form`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
