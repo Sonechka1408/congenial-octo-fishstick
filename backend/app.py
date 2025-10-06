@@ -22,8 +22,8 @@ DB_CONFIG = {
 }
 
 # Telegram Bot configuration
-TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '')
-TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID', '')
+TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '8099365862:AAGk5FkSB6h1cIInzUnNwMNs9a3xlclsU1E')
+TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID', 'nubik10bot')
 
 def get_db_connection():
     """Get database connection"""
